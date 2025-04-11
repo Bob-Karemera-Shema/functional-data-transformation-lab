@@ -49,4 +49,20 @@ function wordFrequency(str) {
     return frequency;
 }
 
-console.log(wordFrequency('I love ice cream, pizza, and cookies! I also love cheesecake, and my dream is to go to cheesecake factory on day.'));
+function snakeCase(str) {
+    // if the argument is a number return the string version
+    if(typeof(str) === "number") return str.toString();
+
+    let result = "";
+    for(const char of str) {
+        // iterate through the string and change a character to lowercase if it is an uppercase character
+        if(char.charCodeAt(0) >= 65 && char.charCodeAt(0) <= 90) {
+            // add an underscore before the character if it is not the first character in the result string
+            result += result.length === 0 ? char.toLowerCase() : `_${char.toLowerCase()}`;
+        } else {
+            result += char;
+        }
+    }
+
+    return result;
+}
