@@ -1,13 +1,13 @@
 function isNotValid(arr) {
     // This functions checks the following:
-    // 1. if the argument is not an array
-    // 2. if the argument is an empty array
-    // 3. if the argument is an array that contains elements which are not numbers
+    // 1. if the input is not an array
+    // 2. if the input is an empty array
+    // 3. if the input is an array that contains elements which are not numbers
     return (!Array.isArray(arr) || arr.length === 0 || arr.some(el => typeof el !== 'number'));
 }
 
 function double(arr) {
-    // if argument is not valid, return it
+    // if input is not valid, return it
     if(isNotValid(arr)) return arr;
 
     // use map() to iterate through each array number and multiply it by 2, and return the new array
@@ -16,7 +16,7 @@ function double(arr) {
 }
 
 function filterEven(arr) {
-    // if argument is not valid, return it
+    // if input is not valid, return it
     if(isNotValid(arr)) return arr;
 
     // use filter() to iterate through the array and return an array with even numbers
@@ -25,7 +25,7 @@ function filterEven(arr) {
 }
 
 function sum(arr) {
-    // if argument is not valid, return it
+    // if input is not valid, return it
     if(isNotValid(arr)) return arr;
 
     // use reduce() to iterate through the array numbers and return a sum
@@ -34,7 +34,7 @@ function sum(arr) {
 }
 
 function average(arr) {
-    // if argument is not valid, return it
+    // if input is not valid, return it
     if(isNotValid(arr)) return arr;
 
     // get the sum of all elements
@@ -43,4 +43,24 @@ function average(arr) {
     return arraySum/arr.length;
 }
 
-console.log(average([1, 2, 3]));
+function deleteNth(arr, n) {
+    // if input is not valid, return it
+    if(isNotValid(arr)) return arr;
+
+    let filtered = [];
+    let counts = {}; //counts object to store number frequency
+
+    for(const number of arr) {
+        counts[number] = counts[number] ? counts[number] + 1 : 1;
+
+        // if the number has appeared n or less times in the input
+        if(counts[number] <= n) filtered.push(number);
+    }
+
+    return filtered;
+}
+
+console.log(deleteNth([20,37,20,21], 1));
+console.log(deleteNth([1,2,3,1,2,1,2,3], 2));
+console.log(deleteNth([1,1,3,3,7,2,2,2,2], 3));
+console.log(deleteNth([12,39,19,39,39,19,12], 1));
