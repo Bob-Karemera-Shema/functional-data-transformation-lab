@@ -1,9 +1,15 @@
 function capitalise(str) {
+    //return the argument if it's not a string
+    if(typeof(str) !== 'string') return str;
+
     // Capitalises the first letter of a string
     return `${str[0].toUpperCase()}${str.slice(1)}`;
 }
 
 function reverse(str) {
+    //return the argument if it's not a string
+    if(typeof(str) !== 'string') return str;
+
     // Reverses a string
     let result = "";
     for(let i = str.length - 1; i > -1; i--) {
@@ -13,6 +19,9 @@ function reverse(str) {
 }
 
 function isPalindrome(str) {
+    //return the argument if it's not a string
+    if(typeof(str) !== 'string') return str;
+
     // change string to lowercase and remove whitespaces to avoid edge cases
     str = str.toLowerCase().replaceAll(" ", "");
 
@@ -29,7 +38,10 @@ function isPalindrome(str) {
     return true;
 }
 
-function wordFrequency(str) {
+function wordFrequency(str) {    
+    //return the argument if it's not a string
+    if(typeof(str) !== 'string') return str;
+
     // remove punctuations from the string using replace() and regular expressions
     str = str.replace(/[\.,?!]/g, '');
 
@@ -66,3 +78,5 @@ function snakeCase(str) {
 
     return result;
 }
+
+console.log(capitalise({}));
