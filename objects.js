@@ -15,4 +15,9 @@ function isAdult(person) {
     return person.age >= 18;
 }
 
-console.log(isAdult());
+function filterByAge(people, minAge) {
+    // check for edge cases
+    if((!Array.isArray(people)) || minAge === undefined || typeof(minAge) !== 'number') return 'invalid inputs or missing arguments';
+
+    return people.filter(person => person.age >= minAge);
+}
