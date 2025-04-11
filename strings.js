@@ -3,4 +3,11 @@ function capitalise(str) {
     return `${str[0].toUpperCase()}${str.slice(1)}`;
 }
 
-console.log(capitalise('hello'));
+function reverse(str) {
+    // Reverses a string
+    let result = "";
+    for(let i = str.length - 1; i > -1; i--) {
+        result += str[i];
+    }
+    return result;
+}
